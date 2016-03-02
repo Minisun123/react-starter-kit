@@ -11,6 +11,7 @@ import browserify from 'browserify';
 import watchify from 'watchify';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
+import autoprefixer from 'autoprefixer';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -44,7 +45,7 @@ gulp.task('eslint', function() {
     .pipe(reload({stream: true, once: true}))
     .pipe($.eslint())
     .pipe($.eslint.format());
-    // .pipe($.eslint.failOnError());
+  // .pipe($.eslint.failOnError());
 });
 
 // 图片优化
@@ -86,7 +87,7 @@ gulp.task('copy', function() {
 gulp.task('styles', function() {
   return gulp.src(['app/less/app.less'])
     .pipe($.less())
-    .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe($.postcss([autoprefixer({browsers: AUTOPREFIXER_BROWSERS})]))
     .pipe(gulp.dest('dist/css'))
     .pipe($.csso())
     .pipe($.rename({suffix: '.min'}))
