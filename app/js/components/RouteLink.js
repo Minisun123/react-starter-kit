@@ -1,14 +1,15 @@
 import React from 'react';
 import {
   Link,
-  History,
 } from 'react-router';
 
 const RouteLink = React.createClass({
-  mixins: [History],
+  contextTypes: {
+    router: React.PropTypes.object.isRequired,
+  },
 
   render() {
-    const isActive = this.history.isActive(this.props.to, this.props.query);
+    const isActive = this.context.router.isActive(this.props.to, this.props.query);
     const activeClassName = isActive ? 'am-active' : '';
     const link = (
       <Link {...this.props} />
