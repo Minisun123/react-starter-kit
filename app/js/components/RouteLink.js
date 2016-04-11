@@ -3,11 +3,7 @@ import {
   Link,
 } from 'react-router';
 
-const RouteLink = React.createClass({
-  contextTypes: {
-    router: React.PropTypes.object.isRequired,
-  },
-
+class RouteLink extends React.Component {
   render() {
     const isActive = this.context.router.isActive(this.props.to, this.props.query);
     const activeClassName = isActive ? 'am-active' : '';
@@ -20,7 +16,11 @@ const RouteLink = React.createClass({
         {link}
       </li>
     );
-  },
-});
+  }
+}
+
+RouteLink.contextTypes = {
+  router: React.PropTypes.object.isRequired,
+};
 
 export default RouteLink;

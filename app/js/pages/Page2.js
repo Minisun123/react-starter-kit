@@ -3,7 +3,7 @@ import {
   Container,
 } from 'amazeui-react';
 
-const Page2 = React.createClass({
+class Page2 extends React.Component {
   render() {
     return (
       <Container className="am-padding-vertical-lg">
@@ -11,7 +11,7 @@ const Page2 = React.createClass({
         <p>页面内容</p>
       </Container>
     );
-  },
-});
+  }
+}
 
 export default Page2;

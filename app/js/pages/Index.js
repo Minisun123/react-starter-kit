@@ -3,7 +3,7 @@ import {
   Container,
 } from 'amazeui-react';
 
-const Index = React.createClass({
+class Index extends React.Component {
   render() {
     return (
       <div className="ask-banner">
@@ -13,7 +13,7 @@ const Index = React.createClass({
         </Container>
       </div>
     );
-  },
-});
+  }
+}
 
 export default Index;

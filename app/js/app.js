@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   render,
 } from 'react-dom';
@@ -18,7 +18,7 @@ import {
 import RouteLink from './components/RouteLink';
 import SiteFooter from './components/SiteFooter';
 
-const App = React.createClass({
+class App extends Component {
   render() {
     return (
       <div className="ask-page">
@@ -41,8 +41,8 @@ const App = React.createClass({
         <SiteFooter />
       </div>
     );
-  },
-});
+  }
+}
 
 // Pages
 import Index from './pages/Index';
