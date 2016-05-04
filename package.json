@@ -53,7 +53,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
-    "build": "NODE_ENV=production gulp build"
+    "_build": "gulp build",
+    "build": "npm run _build --production"
   },
   "browserify-shim": {
     "react": "global:React",
